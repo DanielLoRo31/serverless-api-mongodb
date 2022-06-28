@@ -12,6 +12,27 @@ functions:
     handler: src/hello.handler
     events:
       - httpApi: GET /hello
+  getAllPets:
+    handler: src/handlers/pets.getAll
+    events:
+      - http:
+          method: GET
+          path: /pets
+          cors: true
+  getPetById:
+    handler: src/handlers/pets.getOne
+    events:
+      - http:
+          method: GET
+          path: /pets/{id}
+          cors: true
+  createPet:
+    handler: src/handlers/pets.create
+    events:
+      - http:
+          method: POST
+          path: /pets
+          cors: true
 
 plugins:
   - serverless-esbuild
