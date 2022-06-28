@@ -6,6 +6,9 @@ provider:
   name: aws
   runtime: nodejs14.x
   stage: dev
+  environment:
+    MONGO_DB: ${env:MONGO_DB}
+
 
 functions:
   hello:

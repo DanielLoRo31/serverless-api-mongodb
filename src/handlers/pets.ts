@@ -2,6 +2,7 @@ import { APIGatewayProxyHandler } from "aws-lambda";
 import { connectToDatabase } from "../models/database";
 import PetModel from "../models/pet";
 
+
 export const getOne: APIGatewayProxyHandler = async (event, context) => {
   try {
     await connectToDatabase();
@@ -39,7 +40,7 @@ export const getAll: APIGatewayProxyHandler = async (event) => {
       body: "Could not fetch all pets.",
     };
   }
-}
+};
 
 export const create: APIGatewayProxyHandler = async (event, context) => {
   try {
