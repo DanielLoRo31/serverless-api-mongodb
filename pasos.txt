@@ -1,0 +1,47 @@
+---- PASO 1
+npm init -y
+
+---- PASO 2
+npm i serverless serverless-offline -D
+
+---- PASO 3
+Dentro de el archivo package.json agregar y remplazar lo siguiente
+"scripts": {
+    "dev": "serverless offline"
+  },
+
+---- PASO 4
+crear archivo serverless.yml e ingresar lo siguiente
+/* ----------------------------*/
+service: hello
+
+useDotenv: true
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+
+functions:
+  hello:
+    handler: src/hello.handler
+    events:
+      - httpApi: GET /hello
+
+plugins:
+  - serverless-offline
+/* ----------------------------*/
+
+---- PASO 5
+npm run dev
+
+---- PASO 6
+/*-------------Typescript ---------------*/
+https://www.serverless.com/plugins/serverless-plugin-typescript
+
+npm install -D serverless-plugin-typescript typescript
+npm i -D @types/aws-lambda
+
+/*--------------ESBUILD---------------*/
+https://www.serverless.com/plugins/serverless-esbuild
+
+npm install -D serverless-esbuild esbuild
