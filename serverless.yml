@@ -14,25 +14,28 @@ functions:
   hello:
     handler: src/hello.handler
     events:
-      - httpApi: GET /hello
+      - httpApi: 
+          method: GET
+          path: /hello
+          cors: true
   getAllPets:
     handler: src/handlers/pets.getAll
     events:
-      - http:
+      - httpApi:
           method: GET
           path: /pets
           cors: true
   getPetById:
     handler: src/handlers/pets.getOne
     events:
-      - http:
+      - httpApi:
           method: GET
           path: /pets/{id}
           cors: true
   createPet:
     handler: src/handlers/pets.create
     events:
-      - http:
+      - httpApi:
           method: POST
           path: /pets
           cors: true
